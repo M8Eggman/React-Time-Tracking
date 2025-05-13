@@ -2,24 +2,27 @@ import "./User.css";
 import userImg from "../../assets/images/image-jeremy.png";
 import { useState } from "react";
 
-function User() {
+function User(props) {
   const [daily, setDaily] = useState(true);
   const [weekly, setWeekly] = useState(false);
   const [monthly, setMonthly] = useState(false);
-
-  function handleClick(e) {
-    if (e.target.textContent == "Daily") {
+  // selon où l'on click met le bon booléen en true et les autre en false
+  function handleClick(timeframe) {
+    if (timeframe == "daily") {
       setDaily(true);
       setWeekly(false);
       setMonthly(false);
-    } else if (e.target.textContent == "Weekly") {
+      props.changeTimeframe(timeframe);
+    } else if (timeframe == "weekly") {
       setDaily(false);
       setWeekly(true);
       setMonthly(false);
+      props.changeTimeframe(timeframe);
     } else {
       setDaily(false);
       setWeekly(false);
       setMonthly(true);
+      props.changeTimeframe(timeframe);
     }
   }
   return (
@@ -36,13 +39,13 @@ function User() {
         </div>
         <div className="userFooter">
           <ul>
-            <li onClick={(e) => handleClick(e)} style={daily ? { color: "white" } : {}}>
+            <li onClick={() => handleClick("daily")} style={daily ? { color: "white" } : {}}>
               Daily
             </li>
-            <li onClick={(e) => handleClick(e)} style={weekly ? { color: "white" } : {}}>
+            <li onClick={() => handleClick("weekly")} style={weekly ? { color: "white" } : {}}>
               Weekly
             </li>
-            <li onClick={(e) => handleClick(e)} style={monthly ? { color: "white" } : {}}>
+            <li onClick={() => handleClick("monthly")} style={monthly ? { color: "white" } : {}}>
               Monthly
             </li>
           </ul>
