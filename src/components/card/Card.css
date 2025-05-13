@@ -39,8 +39,12 @@
   transition: 200ms;
   cursor: pointer;
 }
-.cardBody:hover {
+.cardBodyDark:hover {
   background-color: #34397b !important;
+  transition: 200ms;
+}
+.cardBodyLight:hover {
+  background-color: #f5f5f5 !important;
   transition: 200ms;
 }
 .cardBodyTitle {

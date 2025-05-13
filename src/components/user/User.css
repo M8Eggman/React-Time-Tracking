@@ -52,7 +52,11 @@
   cursor: pointer;
   transition: 200ms;
 }
-.userFooter li:hover {
+.userFooterLight li:hover {
+  color: black;
+  transition: 200ms;
+}
+.userFooterDark li:hover {
   color: white;
   transition: 200ms;
 }

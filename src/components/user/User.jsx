@@ -37,7 +37,7 @@ function User(props) {
             <h1>Jeremy Robson</h1>
           </div>
         </div>
-        <div className="userFooter">
+        <div className={props.mode == "dark"? "userFooter userFooterDark" :"userFooter userFooterLight"}>
           <ul>
             <li onClick={() => handleClick("daily")} style={daily ? (props.mode == "dark" ? { color: "white" } : { color: "black" }) : {}}>
               Daily
