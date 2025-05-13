@@ -1,20 +1,24 @@
 import "./Card.css";
+import troisPoint from "../../assets/images/icon-ellipsis.svg";
 
-function Card() {
+// props = { couleur, img, title, hours, timeframe, timeframeHours }
+function Card(props) {
   return (
     <>
       <div className="card">
-        <div className="carHeader">
-          <img src="" alt="" />
+        <div className={"cardHeader cardHeader" + props.couleur}>
+          <img src={props.img} alt="" />
         </div>
         <div className="cardBody">
           <div className="cardBodyTitle">
-            <p></p>
-            <img src="" alt="" />
+            <p>{props.title}</p>
+            <img src={troisPoint} alt="" />
           </div>
           <div className="cardBodyHours">
-            <p></p>
-            <p></p>
+            <p>{props.hours}hrs</p>
+            <p>
+              Last {props.timeframe} - {props.timeframeHours}hrs
+            </p>
           </div>
         </div>
       </div>
