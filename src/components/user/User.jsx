@@ -1,4 +1,5 @@
 import "./User.css";
+import userImg from "../../assets/images/image-jeremy.png"
 
 function User() {
   return (
@@ -6,17 +7,17 @@ function User() {
       <div className="user">
         <div className="userHeader">
           <div className="userHeaderImg">
-            <img src="" alt="" />
+            <img src={userImg} alt="" />
           </div>
           <div className="userHeaderName">
-            <p></p>
-            <h1></h1>
+            <p>Report for</p>
+            <h1>Jeremy Robson</h1>
           </div>
         </div>
         <div className="userFooter">
-            <button></button>
-            <button></button>
-            <button></button>
+            <button>Daily</button>
+            <button>Weekly</button>
+            <button>Monthly</button>
         </div>
       </div>
     </>
