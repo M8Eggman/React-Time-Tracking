@@ -9,15 +9,15 @@ function Card(props) {
         <div className="cardHeader">
           <img src={props.img} alt="" />
         </div>
-        <div className="cardBody">
+        <div className={props.mode == "dark" ? "cardBody darkMode" : "cardBody lightMode"}>
           <div className="cardBodyTitle">
-            <p>{props.title}</p>
+            <p style={props.mode == "dark" ? { color: "white" } : { color: "black" }}>{props.title}</p>
             <div className="cardBodyTitleImg">
               <img src={troisPoint} alt="" />
             </div>
           </div>
           <div className="cardBodyHours">
-            <p>{props.hours}hrs</p>
+            <p style={props.mode == "dark" ? { color: "white" } : { color: "black" }}>{props.hours}hrs</p>
             <p>
               Last {props.timeframe} - {props.timeframeHours}hrs
             </p>

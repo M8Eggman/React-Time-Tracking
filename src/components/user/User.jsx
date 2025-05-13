@@ -27,7 +27,7 @@ function User(props) {
   }
   return (
     <>
-      <div className="user">
+      <div className={props.mode == "dark" ? "user darkMode" : "user lightMode"}>
         <div className="userHeader">
           <div className="userHeaderImg">
             <img src={userImg} alt="" />
@@ -39,13 +39,13 @@ function User(props) {
         </div>
         <div className="userFooter">
           <ul>
-            <li onClick={() => handleClick("daily")} style={daily ? { color: "white" } : {}}>
+            <li onClick={() => handleClick("daily")} style={daily ? (props.mode == "dark" ? { color: "white" } : { color: "black" }) : {}}>
               Daily
             </li>
-            <li onClick={() => handleClick("weekly")} style={weekly ? { color: "white" } : {}}>
+            <li onClick={() => handleClick("weekly")} style={weekly ? (props.mode == "dark" ? { color: "white" } : { color: "black" }) : {}}>
               Weekly
             </li>
-            <li onClick={() => handleClick("monthly")} style={monthly ? { color: "white" } : {}}>
+            <li onClick={() => handleClick("monthly")} style={monthly ? (props.mode == "dark" ? { color: "white" } : { color: "black" }) : {}}>
               Monthly
             </li>
           </ul>

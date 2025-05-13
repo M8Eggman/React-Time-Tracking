@@ -17,6 +17,15 @@ body {
   font-family: "Rubik", sans-serif;
   background-color: var(--Very_dark_blue);
 }
+#changeMode {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 50px;
+  cursor: pointer;
+}
 #userInfo {
   display: flex;
   justify-content: center;
@@ -30,7 +39,6 @@ body {
   gap: 2vh;
   width: calc(15vw * 3 + 2 * 2vh);
 }
-
 @media screen and (max-width: 576px) {
   .cards {
     margin: 2vh 0 0 0vh;
@@ -42,4 +50,10 @@ body {
     flex-direction: column;
     align-items: center;
   }
+}
+.lightMode {
+  background-color: white !important;
+}
+.darkMode {
+  background-color: var(--Dark_blue) !important;
 }
