@@ -16,16 +16,12 @@ body {
   margin: 0px;
   font-family: "Rubik", sans-serif;
   background-color: var(--Very_dark_blue);
-  min-height: 100vh;
-}
-#root {
-  height: 100%;
 }
 #userInfo {
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: start;
+  margin-top: calc((100vh - 65vh) / 2);
 }
 .cards {
   margin-left: 2vh;
@@ -37,7 +33,7 @@ body {
 
 @media screen and (max-width: 576px) {
   .cards {
-    margin:2vh 0 0 0vh;
+    margin: 2vh 0 0 0vh;
     width: 90vw;
   }
   #userInfo {
