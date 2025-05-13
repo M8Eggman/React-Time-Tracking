@@ -32,6 +32,7 @@ body {
   justify-content: center;
   align-items: start;
   margin-top: calc((100vh - 65vh) / 2);
+  margin-bottom: calc((100vh - 65vh) / 2);
 }
 .cards {
   margin-left: 2vh;
