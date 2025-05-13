@@ -40,7 +40,7 @@
   cursor: pointer;
 }
 .cardBody:hover {
-  background-color: #34397b;
+  background-color: #34397b !important;
   transition: 200ms;
 }
 .cardBodyTitle {
