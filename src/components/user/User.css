@@ -2,6 +2,8 @@
   background-color: var(--Dark_blue);
   border-radius: 20px;
   width: 250px;
+  top: 10px;
+  position: sticky;
 }
 .userHeader {
   background-color: var(--Blue);
@@ -63,6 +65,8 @@
 @media screen and (max-width: 576px) {
   .user {
     width: 90vw;
+    top: 0;
+    position: relative;
   }
   .userHeader {
     height: auto;

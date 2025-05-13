@@ -18,13 +18,14 @@ body {
   background-color: var(--Very_dark_blue);
 }
 #changeMode {
-  position: absolute;
+  position: fixed;
   top: 10px;
   right: 10px;
   background: none;
   border: none;
   font-size: 50px;
   cursor: pointer;
+  z-index: 1;
 }
 #userInfo {
   display: flex;
