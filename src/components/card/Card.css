@@ -67,8 +67,12 @@
   cursor: pointer;
   transition: 200ms;
 }
-.cardBodyTitle .cardBodyTitleImg:hover img {
+.cardBodyTitle .cardBodyTitleImgDark:hover img {
   filter: brightness(200%);
+  transition: 200ms;
+}
+.cardBodyTitle .cardBodyTitleImgLight:hover img {
+  filter: brightness(0%);
   transition: 200ms;
 }
 .cardBodyHours p:first-of-type {

@@ -12,7 +12,7 @@ function Card(props) {
         <div className={props.mode == "dark" ? "cardBody cardBodyDark darkMode" : "cardBody cardBodyLight lightMode"}>
           <div className="cardBodyTitle">
             <p style={props.mode == "dark" ? { color: "white" } : { color: "black" }}>{props.title}</p>
-            <div className="cardBodyTitleImg">
+            <div className={props.mode == "dark" ? "cardBodyTitleImg cardBodyTitleImgDark" : "cardBodyTitleImg cardBodyTitleImgLight"}>
               <img src={troisPoint} alt="" />
             </div>
           </div>
