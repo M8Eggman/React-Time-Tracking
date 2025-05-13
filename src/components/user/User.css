@@ -1,0 +1,58 @@
+.user {
+  background-color: var(--Dark_blue);
+  border-radius: 20px;
+  width: 250px;
+  height: 60vh;
+}
+.userHeader {
+  background-color: var(--Blue);
+  border-radius: 20px;
+  box-sizing: border-box;
+  padding: 30px;
+  height: 40vh;
+}
+.userHeaderImg {
+  width: 85px;
+  height: 85px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 50%;
+}
+.userHeaderName p {
+  color: var(--Pale_Blue);
+  margin-block: 20px 0px;
+}
+.userHeaderName h1 {
+  margin-top: 10px;
+  color: white;
+  font-weight: 300;
+  font-size: 35px;
+}
+.userHeaderImg img {
+  width: 80px;
+}
+.userFooter {
+  padding-inline: 30px;
+  height: 20vh;
+  display: flex;
+  align-items: center;
+}
+.userFooter ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.userFooter li {
+  color: var(--Desaturated_blue);
+  font-size: 18px;
+  cursor: pointer;
+}
+.userFooter li:hover {
+  color: white;
+  transition: 200ms;
+}

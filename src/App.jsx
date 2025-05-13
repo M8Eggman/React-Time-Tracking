@@ -6,7 +6,7 @@ import data from "../data.json"
 function App() {
   return (
     <>
-      <section className="userInfo">
+      <section id="userInfo">
         <User />
         <div className="cards">
           <Card />

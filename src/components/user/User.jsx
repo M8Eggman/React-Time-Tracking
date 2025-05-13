@@ -1,5 +1,5 @@
 import "./User.css";
-import userImg from "../../assets/images/image-jeremy.png"
+import userImg from "../../assets/images/image-jeremy.png";
 
 function User() {
   return (
@@ -15,9 +15,11 @@ function User() {
           </div>
         </div>
         <div className="userFooter">
-            <button>Daily</button>
-            <button>Weekly</button>
-            <button>Monthly</button>
+          <ul>
+            <li>Daily</li>
+            <li>Weekly</li>
+            <li>Monthly</li>
+          </ul>
         </div>
       </div>
     </>
