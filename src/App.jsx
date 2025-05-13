@@ -1,9 +1,23 @@
 import "./App.css";
+import Card from "./components/card/card";
+import User from "./components/user/User";
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  return <></>;
+  return (
+    <>
+      <section className="userInfo">
+        <User />
+        <div className="cards">
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+        </div>
+      </section>
+    </>
+  );
 }
 
 export default App;
