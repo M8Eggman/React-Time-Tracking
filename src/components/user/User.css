@@ -1,7 +1,7 @@
 .user {
   background-color: var(--Dark_blue);
   border-radius: 20px;
-  width: 15vw;
+  width: 250px;
 }
 .userHeader {
   background-color: var(--Blue);
@@ -19,6 +19,9 @@
   background-color: white;
   border-radius: 50%;
 }
+.userHeaderImg img {
+  width: 80px;
+}
 .userHeaderName p {
   color: var(--Pale_Blue);
   margin-block: 40px 0px;
@@ -28,9 +31,6 @@
   color: white;
   font-weight: 300;
   font-size: 40px;
-}
-.userHeaderImg img {
-  width: 80px;
 }
 .userFooter {
   padding-inline: 30px;
@@ -55,4 +55,42 @@
 .userFooter li:hover {
   color: white;
   transition: 200ms;
+}
+@media screen and (max-width: 576px) {
+  .user {
+    width: 90vw;
+  }
+  .userHeader {
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .userHeaderImg {
+    width: 65px;
+    height: 65px;
+  }
+  .userHeaderImg img {
+    width: 60px;
+  }
+  .userHeaderName p {
+    margin: 0;
+  }
+  .userHeaderName h1 {
+    font-size: 25px;
+    margin: 0;
+  }
+  .userFooter {
+    padding: 30px;
+    height: auto;
+  }
+  .userFooter ul {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .userFooter li {
+    font-size: 20px;
+  }
 }

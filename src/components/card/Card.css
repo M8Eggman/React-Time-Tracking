@@ -17,7 +17,7 @@
   background-color: var(--Soft_orange_self_care);
 }
 .card {
-  width: 15vw;
+  width: 250px;
   border-radius: 20px;
 }
 .cardHeader {
@@ -75,4 +75,23 @@
 }
 .cardBodyHours p:last-of-type {
   color: var(--Pale_Blue);
+}
+@media screen and (max-width: 576px) {
+  .card {
+    width: 90vw;
+  }
+  .cardBody {
+    height: auto;
+  }
+  .cardBodyHours {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .cardBodyHours p {
+    margin-block: 10px 0px !important;
+  }
+  .cardBodyHours p:first-of-type {
+    font-size: 35px;
+  }
 }
