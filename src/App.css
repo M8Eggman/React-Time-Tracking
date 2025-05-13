@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 :root {
   --Blue: hsl(246, 80%, 60%);
-  --Lightr_ed_work: hsl(15, 100%, 70%);
+  --Light_red_work: hsl(15, 100%, 70%);
   --Soft_blue_play: hsl(195, 74%, 62%);
-  --Light_red_study_: hsl(348, 100%, 68%);
-  --Lime_green_exercise_: hsl(145, 58%, 55%);
-  --Violet_social_: hsl(264, 64%, 52%);
+  --Light_red_study: hsl(348, 100%, 68%);
+  --Lime_green_exercise: hsl(145, 58%, 55%);
+  --Violet_social: hsl(264, 64%, 52%);
   --Soft_orange_self_care: hsl(43, 84%, 65%);
   --Very_dark_blue: hsl(226, 43%, 10%);
   --Dark_blue: hsl(235, 46%, 20%);
@@ -16,12 +16,21 @@ body {
   margin: 0px;
   font-family: "Rubik", sans-serif;
   background-color: var(--Very_dark_blue);
+  height: 100vh;
 }
 #root {
-  display: flex;
-  justify-content: center;
+  height: 100%;
 }
 #userInfo {
+  height: 100%;
   display: flex;
+  justify-content: center;
   align-items: center;
+}
+.cards {
+  margin-left: 2vh;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2vh;
+  width: calc(15vw * 3 + 2 * 2vh);
 }

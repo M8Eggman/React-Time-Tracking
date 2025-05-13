@@ -5,14 +5,16 @@ import troisPoint from "../../assets/images/icon-ellipsis.svg";
 function Card(props) {
   return (
     <>
-      <div className="card">
-        <div className={"cardHeader cardHeader" + props.couleur}>
+      <div className={"card card" + props.couleur}>
+        <div className="cardHeader">
           <img src={props.img} alt="" />
         </div>
         <div className="cardBody">
           <div className="cardBodyTitle">
             <p>{props.title}</p>
-            <img src={troisPoint} alt="" />
+            <div className="cardBodyTitleImg">
+              <img src={troisPoint} alt="" />
+            </div>
           </div>
           <div className="cardBodyHours">
             <p>{props.hours}hrs</p>
