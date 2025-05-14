@@ -10,7 +10,7 @@ import iconSelfCare from "./assets/images/icon-self-care.svg";
 import data from "../data.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   // liste dans l'ordre pour les cards
@@ -22,10 +22,27 @@ function App() {
     Social: ["Purple", iconSocial],
     "Self Care": ["Yellow", iconSelfCare],
   };
-  // state qui gère la periode de temps
-  const [timeframePeriod, setTimeframePeriod] = useState("daily");
-  // state qui gère le mode
-  const [mode, setMode] = useState("dark");
+
+  // récupère la valeur de local storage si il existe sinon lui met dark
+  const [timeframePeriod, setTimeframePeriod] = useState(() => {
+    localStorage.getItem("timeframePeriod") || "dark";
+  });
+  // récupère la valeur de local storage si il existe sinon lui met daily
+  const [mode, setMode] = useState(() => {
+    localStorage.getItem("mode") || "daily";
+  });
+
+  // sauvegarde le mode et le timefram dans localStorage
+  useEffect(() => {
+    localStorage.setItem("mode", mode);
+  }, [mode]);
+  useEffect(() => {
+    localStorage.setItem("timeframePeriod", timeframePeriod);
+  }, [timeframePeriod]);
+
+  console.log(mode);
+  console.log(timeframePeriod);
+
   // enlève la fin d'un timeframe exemple weekly => week
   function transformer(timeframe) {
     switch (timeframe) {
@@ -60,7 +77,7 @@ function App() {
         <User changeTimeframe={changeTimeframe} mode={mode} />
         <div className="cards">
           {/* props = { couleur, img, title, hours, timeframe, timeframeHours } */}
-          {data.map((item, index) => (
+          {data.map((item) => (
             <Card
               key={item.title}
               couleur={iconsAndCouleurs[item.title][0]}
