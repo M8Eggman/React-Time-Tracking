@@ -25,11 +25,11 @@ function App() {
 
   // récupère la valeur de local storage si il existe sinon lui met dark
   const [timeframePeriod, setTimeframePeriod] = useState(() => {
-    localStorage.getItem("timeframePeriod") || "dark";
+    return localStorage.getItem("timeframePeriod") || "daily";
   });
   // récupère la valeur de local storage si il existe sinon lui met daily
   const [mode, setMode] = useState(() => {
-    localStorage.getItem("mode") || "daily";
+    return localStorage.getItem("mode") || "dark";
   });
 
   // sauvegarde le mode et le timefram dans localStorage
@@ -38,10 +38,8 @@ function App() {
   }, [mode]);
   useEffect(() => {
     localStorage.setItem("timeframePeriod", timeframePeriod);
+    document.body.style.backgroundColor = mode == "dark" ? "var(--Very_dark_blue)" : "aliceblue";
   }, [timeframePeriod]);
-
-  console.log(mode);
-  console.log(timeframePeriod);
 
   // enlève la fin d'un timeframe exemple weekly => week
   function transformer(timeframe) {
@@ -60,13 +58,8 @@ function App() {
   }
   // change le mode darke en light et inversement
   function changeMode() {
-    if (mode == "dark") {
-      setMode("light");
-      document.body.style.backgroundColor = "aliceblue";
-    } else {
-      setMode("dark");
-      document.body.style.backgroundColor = "var(--Very_dark_blue)";
-    }
+    mode == "dark" ? setMode("light") : setMode("dark");
+    document.body.style.backgroundColor = mode == "dark" ? "aliceblue" : "var(--Very_dark_blue)";
   }
   return (
     <>
@@ -74,7 +67,7 @@ function App() {
         {mode == "dark" ? <FontAwesomeIcon icon={faSun} /> : <FontAwesomeIcon icon={faMoon} />}
       </button>
       <section id="userInfo">
-        <User changeTimeframe={changeTimeframe} mode={mode} />
+        <User changeTimeframe={changeTimeframe} mode={mode} timeframePeriod={timeframePeriod}/>
         <div className="cards">
           {/* props = { couleur, img, title, hours, timeframe, timeframeHours } */}
           {data.map((item) => (
