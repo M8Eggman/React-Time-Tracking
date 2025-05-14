@@ -1,6 +1,5 @@
 import "./User.css";
 import userImg from "../../assets/images/image-jeremy.png";
-import { useState } from "react";
 
 function User(props) {
   return (

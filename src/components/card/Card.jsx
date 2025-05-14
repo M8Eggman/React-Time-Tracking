@@ -1,7 +1,7 @@
 import "./Card.css";
 import troisPoint from "../../assets/images/icon-ellipsis.svg";
 
-// props = { couleur, img, title, hours, timeframe, timeframeHours }
+// props = { couleur, img, title, hours, timeframe, timeframeHours, mode}
 function Card(props) {
   return (
     <>

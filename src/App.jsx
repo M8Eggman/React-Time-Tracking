@@ -13,7 +13,7 @@ import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 
 function App() {
-  // liste dans l'ordre pour les cards
+  // objets regroupant tout les info pour chaque tache [couleur, icone]
   const iconsAndCouleurs = {
     Work: ["Orange", iconWork],
     Play: ["Blue", iconPlay],
@@ -27,12 +27,13 @@ function App() {
   const [timeframePeriod, setTimeframePeriod] = useState(() => {
     return localStorage.getItem("timeframePeriod") || "daily";
   });
+
   // récupère la valeur de local storage si il existe sinon lui met daily
   const [mode, setMode] = useState(() => {
     return localStorage.getItem("mode") || "dark";
   });
 
-  // sauvegarde le mode et le timefram dans localStorage
+  // sauvegarde le mode et le timeframe dans localStorage
   useEffect(() => {
     localStorage.setItem("mode", mode);
   }, [mode]);
@@ -41,7 +42,7 @@ function App() {
     document.body.style.backgroundColor = mode == "dark" ? "var(--Very_dark_blue)" : "aliceblue";
   }, [timeframePeriod]);
 
-  // enlève la fin d'un timeframe exemple weekly => week
+  // enlève la fin d'un timeframe exemple weekly => week utile pour l'affichage
   function transformer(timeframe) {
     switch (timeframe) {
       case "daily":
@@ -52,11 +53,13 @@ function App() {
         return "month";
     }
   }
-  // change la period de temps
+
+  // change la periode de temps
   function changeTimeframe(period) {
     setTimeframePeriod(period);
   }
-  // change le mode darke en light et inversement
+
+  // change le mode dark en light et inversement et change aussi le style du body
   function changeMode() {
     mode == "dark" ? setMode("light") : setMode("dark");
     document.body.style.backgroundColor = mode == "dark" ? "aliceblue" : "var(--Very_dark_blue)";
