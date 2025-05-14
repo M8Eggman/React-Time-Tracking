@@ -14,8 +14,14 @@ import { useState } from "react";
 
 function App() {
   // liste dans l'ordre pour les cards
-  const couleurs = ["Orange", "Blue", "Red", "Green", "Purple", "Yellow"];
-  const icons = [iconWork, iconPlay, iconStudy, iconExercise, iconSocial, iconSelfCare];
+  const iconsAndCouleurs = {
+    Work: ["Orange", iconWork],
+    Play: ["Blue", iconPlay],
+    Study: ["Red", iconStudy],
+    Exercise: ["Green", iconExercise],
+    Social: ["Purple", iconSocial],
+    "Self Care": ["Yellow", iconSelfCare],
+  };
   // state qui gère la periode de temps
   const [timeframePeriod, setTimeframePeriod] = useState("daily");
   // state qui gère le mode
@@ -57,8 +63,8 @@ function App() {
           {data.map((item, index) => (
             <Card
               key={item.title}
-              couleur={couleurs[index]}
-              img={icons[index]}
+              couleur={iconsAndCouleurs[item.title][0]}
+              img={iconsAndCouleurs[item.title][1]}
               title={item.title}
               hours={item.timeframes[timeframePeriod].current}
               timeframe={transformer(timeframePeriod)}
