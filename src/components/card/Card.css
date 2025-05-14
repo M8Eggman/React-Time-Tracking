@@ -40,11 +40,11 @@
   cursor: pointer;
 }
 .cardBodyDark:hover {
-  background-color: #34397b !important;
+  background-color: hsl(235, 46%, 30%) !important;
   transition: 200ms;
 }
 .cardBodyLight:hover {
-  background-color: #f5f5f5 !important;
+  background-color: hsl(0, 0%, 90%)!important;
   transition: 200ms;
 }
 .cardBodyTitle {
