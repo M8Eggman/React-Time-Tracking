@@ -5,7 +5,7 @@ function User(props) {
     <>
       <div className={props.mode == "dark" ? "user darkMode" : "user lightMode"}>
         <div className="userHeader">
-          <div className="userHeaderImg">
+          <div onClick={props.changeUser} className="userHeaderImg">
             <img src={props.img} alt="" />
           </div>
           <div className="userHeaderName">

@@ -84,9 +84,8 @@ function App() {
       <button onClick={changeMode} style={mode == "dark" ? { color: "aliceblue" } : { color: "var(--Very_dark_blue)" }} id="changeMode">
         {mode == "dark" ? <FontAwesomeIcon icon={faSun} /> : <FontAwesomeIcon icon={faMoon} />}
       </button>
-      <button onClick={changeUser} id="changeUser"><img src={data[user].userImage} alt="" /></button>
       <section id="userInfo">
-        <User changeTimeframe={changeTimeframe} mode={mode} timeframePeriod={timeframePeriod} username={data[user].username} img={data[user].userImage} />
+        <User changeUser={changeUser} changeTimeframe={changeTimeframe} mode={mode} timeframePeriod={timeframePeriod} username={data[user].username} img={data[user].userImage} />
         <div className="cards">
           {/* props = { couleur, img, title, hours, timeframe, timeframeHours } */}
           {data[user].stats.map((item) => (
