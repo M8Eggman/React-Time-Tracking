@@ -39,7 +39,7 @@ function App() {
     return localStorage.getItem("user") || 0;
   });
 
-  // sauvegarde le mode et le timeframe dans localStorage et user
+  // sauvegarde le mode, le timeframe et l'user dans localStorage 
   useEffect(() => {
     localStorage.setItem("mode", mode);
   }, [mode]);
@@ -84,7 +84,7 @@ function App() {
       <button onClick={changeMode} style={mode == "dark" ? { color: "aliceblue" } : { color: "var(--Very_dark_blue)" }} id="changeMode">
         {mode == "dark" ? <FontAwesomeIcon icon={faSun} /> : <FontAwesomeIcon icon={faMoon} />}
       </button>
-      <button onClick={changeUser}>{mode == "dark" ? <FontAwesomeIcon icon={faSun} /> : <FontAwesomeIcon icon={faMoon} />}</button>
+      <button onClick={changeUser} id="changeUser"><img src={data[user].userImage} alt="" /></button>
       <section id="userInfo">
         <User changeTimeframe={changeTimeframe} mode={mode} timeframePeriod={timeframePeriod} username={data[user].username} img={data[user].userImage} />
         <div className="cards">

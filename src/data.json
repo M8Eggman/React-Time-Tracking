@@ -115,16 +115,16 @@
         "title": "Work",
         "timeframes": {
           "daily": {
-            "current": 5,
-            "previous": 7
+            "current": 0,
+            "previous": 0
           },
           "weekly": {
-            "current": 32,
-            "previous": 36
+            "current": 0,
+            "previous": 0
           },
           "monthly": {
-            "current": 103,
-            "previous": 128
+            "current": 0,
+            "previous": 0
           }
         }
       },
