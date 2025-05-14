@@ -1,5 +1,4 @@
 import "./User.css";
-import userImg from "../../assets/images/image-jeremy.png";
 
 function User(props) {
   return (
@@ -7,11 +6,11 @@ function User(props) {
       <div className={props.mode == "dark" ? "user darkMode" : "user lightMode"}>
         <div className="userHeader">
           <div className="userHeaderImg">
-            <img src={userImg} alt="" />
+            <img src={props.img} alt="" />
           </div>
           <div className="userHeaderName">
             <p>Report for</p>
-            <h1>Jeremy Robson</h1>
+            <h1>{props.username}</h1>
           </div>
         </div>
         <div className={props.mode == "dark" ? "userFooter userFooterDark" : "userFooter userFooterLight"}>

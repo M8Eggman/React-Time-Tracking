@@ -23,6 +23,7 @@
 }
 .userHeaderImg img {
   width: 80px;
+  border-radius: 50%;
 }
 .userHeaderName p {
   color: var(--Pale_Blue);

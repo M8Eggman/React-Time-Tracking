@@ -7,7 +7,7 @@ import iconStudy from "./assets/images/icon-study.svg";
 import iconExercise from "./assets/images/icon-exercise.svg";
 import iconSocial from "./assets/images/icon-social.svg";
 import iconSelfCare from "./assets/images/icon-self-care.svg";
-import data from "../data.json";
+import data from "./data.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
@@ -18,6 +18,7 @@ function App() {
     Work: ["Orange", iconWork],
     Play: ["Blue", iconPlay],
     Study: ["Red", iconStudy],
+    Code : ["Red", iconStudy],
     Exercise: ["Green", iconExercise],
     Social: ["Purple", iconSocial],
     "Self Care": ["Yellow", iconSelfCare],
@@ -33,7 +34,12 @@ function App() {
     return localStorage.getItem("mode") || "dark";
   });
 
-  // sauvegarde le mode et le timeframe dans localStorage
+  // récupère la valeur de local storage si il existe sinon lui met jeremy
+  const [user, setUser] = useState(() => {
+    return localStorage.getItem("user") || 0;
+  });
+
+  // sauvegarde le mode et le timeframe dans localStorage et user
   useEffect(() => {
     localStorage.setItem("mode", mode);
   }, [mode]);
@@ -41,6 +47,9 @@ function App() {
     localStorage.setItem("timeframePeriod", timeframePeriod);
     document.body.style.backgroundColor = mode == "dark" ? "var(--Very_dark_blue)" : "aliceblue";
   }, [timeframePeriod]);
+  useEffect(() => {
+    localStorage.setItem("user", user);
+  }, [user]);
 
   // enlève la fin d'un timeframe exemple weekly => week utile pour l'affichage
   function transformer(timeframe) {
@@ -64,16 +73,23 @@ function App() {
     mode == "dark" ? setMode("light") : setMode("dark");
     document.body.style.backgroundColor = mode == "dark" ? "aliceblue" : "var(--Very_dark_blue)";
   }
+
+  // change l'utilisateur
+  function changeUser() {
+    user == 0 ? setUser(1) : setUser(0);
+  }
+
   return (
     <>
       <button onClick={changeMode} style={mode == "dark" ? { color: "aliceblue" } : { color: "var(--Very_dark_blue)" }} id="changeMode">
         {mode == "dark" ? <FontAwesomeIcon icon={faSun} /> : <FontAwesomeIcon icon={faMoon} />}
       </button>
+      <button onClick={changeUser}>{mode == "dark" ? <FontAwesomeIcon icon={faSun} /> : <FontAwesomeIcon icon={faMoon} />}</button>
       <section id="userInfo">
-        <User changeTimeframe={changeTimeframe} mode={mode} timeframePeriod={timeframePeriod}/>
+        <User changeTimeframe={changeTimeframe} mode={mode} timeframePeriod={timeframePeriod} username={data[user].username} img={data[user].userImage} />
         <div className="cards">
           {/* props = { couleur, img, title, hours, timeframe, timeframeHours } */}
-          {data.map((item) => (
+          {data[user].stats.map((item) => (
             <Card
               key={item.title}
               couleur={iconsAndCouleurs[item.title][0]}
