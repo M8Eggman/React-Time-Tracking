@@ -10,16 +10,37 @@ import iconSelfCare from "./assets/images/icon-self-care.svg";
 import data from "../data.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   // liste dans l'ordre pour les cards
-  const couleurs = ["Orange", "Blue", "Red", "Green", "Purple", "Yellow"];
-  const icons = [iconWork, iconPlay, iconStudy, iconExercise, iconSocial, iconSelfCare];
-  // state qui gère la periode de temps
-  const [timeframePeriod, setTimeframePeriod] = useState("daily");
-  // state qui gère le mode
-  const [mode, setMode] = useState("dark");
+  const iconsAndCouleurs = {
+    Work: ["Orange", iconWork],
+    Play: ["Blue", iconPlay],
+    Study: ["Red", iconStudy],
+    Exercise: ["Green", iconExercise],
+    Social: ["Purple", iconSocial],
+    "Self Care": ["Yellow", iconSelfCare],
+  };
+
+  // récupère la valeur de local storage si il existe sinon lui met dark
+  const [timeframePeriod, setTimeframePeriod] = useState(() => {
+    return localStorage.getItem("timeframePeriod") || "daily";
+  });
+  // récupère la valeur de local storage si il existe sinon lui met daily
+  const [mode, setMode] = useState(() => {
+    return localStorage.getItem("mode") || "dark";
+  });
+
+  // sauvegarde le mode et le timefram dans localStorage
+  useEffect(() => {
+    localStorage.setItem("mode", mode);
+  }, [mode]);
+  useEffect(() => {
+    localStorage.setItem("timeframePeriod", timeframePeriod);
+    document.body.style.backgroundColor = mode == "dark" ? "var(--Very_dark_blue)" : "aliceblue";
+  }, [timeframePeriod]);
+
   // enlève la fin d'un timeframe exemple weekly => week
   function transformer(timeframe) {
     switch (timeframe) {
@@ -37,13 +58,8 @@ function App() {
   }
   // change le mode darke en light et inversement
   function changeMode() {
-    if (mode == "dark") {
-      setMode("light");
-      document.body.style.backgroundColor = "aliceblue";
-    } else {
-      setMode("dark");
-      document.body.style.backgroundColor = "var(--Very_dark_blue)";
-    }
+    mode == "dark" ? setMode("light") : setMode("dark");
+    document.body.style.backgroundColor = mode == "dark" ? "aliceblue" : "var(--Very_dark_blue)";
   }
   return (
     <>
@@ -51,14 +67,14 @@ function App() {
         {mode == "dark" ? <FontAwesomeIcon icon={faSun} /> : <FontAwesomeIcon icon={faMoon} />}
       </button>
       <section id="userInfo">
-        <User changeTimeframe={changeTimeframe} mode={mode} />
+        <User changeTimeframe={changeTimeframe} mode={mode} timeframePeriod={timeframePeriod}/>
         <div className="cards">
           {/* props = { couleur, img, title, hours, timeframe, timeframeHours } */}
-          {data.map((item, index) => (
+          {data.map((item) => (
             <Card
               key={item.title}
-              couleur={couleurs[index]}
-              img={icons[index]}
+              couleur={iconsAndCouleurs[item.title][0]}
+              img={iconsAndCouleurs[item.title][1]}
               title={item.title}
               hours={item.timeframes[timeframePeriod].current}
               timeframe={transformer(timeframePeriod)}
