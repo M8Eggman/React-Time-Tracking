@@ -21,6 +21,7 @@
   align-items: center;
   background-color: white;
   border-radius: 50%;
+  cursor: pointer;
 }
 .userHeaderImg img {
   width: 80px;
