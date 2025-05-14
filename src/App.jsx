@@ -1,15 +1,20 @@
 import "./App.css";
+// import des component
 import Card from "./components/card/card";
 import User from "./components/user/User";
+// import des icon
 import iconWork from "./assets/images/icon-work.svg";
 import iconPlay from "./assets/images/icon-play.svg";
 import iconStudy from "./assets/images/icon-study.svg";
 import iconExercise from "./assets/images/icon-exercise.svg";
 import iconSocial from "./assets/images/icon-social.svg";
 import iconSelfCare from "./assets/images/icon-self-care.svg";
+// import de data.json
 import data from "./data.json";
+// import fontawesome et ses icon
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
+// import fonctionnalité react
 import { useEffect, useState } from "react";
 
 function App() {
@@ -18,7 +23,7 @@ function App() {
     Work: ["Orange", iconWork],
     Play: ["Blue", iconPlay],
     Study: ["Red", iconStudy],
-    Code : ["Red", iconStudy],
+    Code: ["Red", iconStudy],
     Exercise: ["Green", iconExercise],
     Social: ["Purple", iconSocial],
     "Self Care": ["Yellow", iconSelfCare],
@@ -39,12 +44,13 @@ function App() {
     return localStorage.getItem("user") || 0;
   });
 
-  // sauvegarde le mode, le timeframe et l'user dans localStorage 
+  // sauvegarde le mode, le timeframe et l'user dans localStorage
   useEffect(() => {
     localStorage.setItem("mode", mode);
   }, [mode]);
   useEffect(() => {
     localStorage.setItem("timeframePeriod", timeframePeriod);
+    // change le bgcolor selon ce qui est stocké
     document.body.style.backgroundColor = mode == "dark" ? "var(--Very_dark_blue)" : "aliceblue";
   }, [timeframePeriod]);
   useEffect(() => {
@@ -87,7 +93,6 @@ function App() {
       <section id="userInfo">
         <User changeUser={changeUser} changeTimeframe={changeTimeframe} mode={mode} timeframePeriod={timeframePeriod} username={data[user].username} img={data[user].userImage} />
         <div className="cards">
-          {/* props = { couleur, img, title, hours, timeframe, timeframeHours } */}
           {data[user].stats.map((item) => (
             <Card
               key={item.title}
