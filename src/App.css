@@ -33,13 +33,14 @@ body {
   align-items: start;
   margin-top: calc((100vh - 65vh) / 2);
   margin-bottom: calc((100vh - 65vh) / 2);
+  margin-inline: 20px;
 }
 .cards {
   margin-left: 2vh;
   display: flex;
   flex-wrap: wrap;
   gap: 2vh;
-  width: calc(15vw * 3 + 2 * 2vh);
+  max-width: calc(250px * 3 + 2 * 2vh);
 }
 @media screen and (max-width: 576px) {
   .cards {

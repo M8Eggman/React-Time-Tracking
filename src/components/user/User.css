@@ -1,6 +1,7 @@
 .user {
   background-color: var(--Dark_blue);
   border-radius: 20px;
+  min-width: 250px;
   width: 250px;
   top: 10px;
   position: sticky;
