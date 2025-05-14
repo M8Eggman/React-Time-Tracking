@@ -36,11 +36,11 @@ body {
   margin-inline: 20px;
 }
 .cards {
-  margin-left: 2vh;
+  margin-left: 20px;
   display: flex;
   flex-wrap: wrap;
-  gap: 2vh;
-  max-width: calc(250px * 3 + 2 * 2vh);
+  gap: 20px;
+  max-width: calc(250px * 3 + 2 * 20px);
 }
 @media screen and (max-width: 576px) {
   .cards {

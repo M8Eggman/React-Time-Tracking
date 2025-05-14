@@ -21,7 +21,7 @@
   border-radius: 20px;
 }
 .cardHeader {
-  height: 6vh;
+  height: 50px;
   overflow: hidden;
   position: relative;
 }
@@ -34,7 +34,7 @@
   box-sizing: border-box;
   padding: 30px;
   background-color: var(--Dark_blue);
-  height: 25.5vh;
+  height: 215px;
   border-radius: 20px;
   transition: 200ms;
   cursor: pointer;

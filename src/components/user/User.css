@@ -11,7 +11,7 @@
   border-radius: 20px;
   box-sizing: border-box;
   padding: 30px;
-  height: 45vh;
+  height: 400px;
 }
 .userHeaderImg {
   width: 85px;
@@ -40,7 +40,7 @@
 }
 .userFooter {
   padding-inline: 30px;
-  height: 20vh;
+  height: 150px;
   display: flex;
   align-items: center;
 }
