@@ -44,7 +44,7 @@ body {
 }
 @media screen and (max-width: 576px) {
   .cards {
-    margin: 2vh 0 0 0vh;
+    margin: 20px 0 0 0;
     width: 90vw;
   }
   #userInfo {
